@@ -1,0 +1,127 @@
+{% extends 'app/index.html' %}
+
+{% block title %}首页渲染{% endblock %}
+
+{% block content %}
+    <div class="p-3 mb-2 bg-dark text-white">
+    <div class="text-center">
+    <div class="card-header">
+    Featured
+    </div>
+    <div class="card-body">
+      <input class="text-center" type="text" style="width:450px;height:40px" placeholder="请输入要搜索的内容">
+      <a href="#" class="btn btn-primary" style="margin-left:10px">搜索</a>
+    </div>
+    </div>
+    </div>
+
+    <div class="p-3 mb-2 bg-dark text-white" >
+        <nav class="nav nav-pills flex-column flex-sm-row">
+          <a class="flex-sm-fill text-sm-center nav-link active" id="time-tab" data-toggle="tab" href="#bytime" style="color: white">按年份</a>
+          <a class="flex-sm-fill text-sm-center nav-link" id="industry-tab" data-toggle="tab" href="#byindustry" style="color: white">按被攻击行业</a>
+          <a class="flex-sm-fill text-sm-center nav-link" id="country-tab" data-toggle="tab" href="#bycountry" style="color: white">按被攻击国家/地区</a>
+          <a class="flex-sm-fill text-sm-center nav-link" id="report-tab" data-toggle="tab" href="#byreport" style="color: white">按报告类型</a>
+          <a class="flex-sm-fill text-sm-center nav-link" id="malware-tab" data-toggle="tab" href="#bymalware" style="color: white">按恶意软件</a>
+          <a class="flex-sm-fill text-sm-center nav-link" id="company-tab" data-toggle="tab" href="#bycompany" style="color: white" tabindex="-1" aria-disabled="true">按披露机构</a>
+        </nav>
+        <hr>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="bytime" role="tabpanel" aria-labelledby="home-tab">
+                <div id="bytime" class="container-fluid" style="margin-left: 100px;margin-right: 100px">
+                <button type="button" class="btn btn-info" style="width: 120px">2020</button>
+                <button type="button" class="btn btn-info" style="width: 120px">2019</button>
+                <button type="button" class="btn btn-info" style="width: 120px">2018</button>
+                <button type="button" class="btn btn-info" style="width: 120px">2017</button>
+                <button type="button" class="btn btn-info" style="width: 120px">2016</button>
+                <button type="button" class="btn btn-info" style="width: 120px">2015</button>
+                </div>
+            </div>
+            <div class="tab-pane" id="byindustry" role="tabpanel" aria-labelledby="industry-tab">
+                <div id="byindustry" class="container-fluid" style="margin-left: 100px;margin-right: 100px" >
+                <button type="button" class="btn btn-info" style="width: 120px">政府</button>
+                <button type="button" class="btn btn-info" style="width: 120px">军事</button>
+                <button type="button" class="btn btn-info" style="width: 120px">教育</button>
+                <button type="button" class="btn btn-info" style="width: 120px">酒店</button>
+                <button type="button" class="btn btn-info" style="width: 120px">工业</button>
+                <button type="button" class="btn btn-info" style="width: 120px">个人</button>
+                </div>
+            </div>
+            <div class="tab-pane" id="bycountry" role="tabpanel" aria-labelledby="country-tab">
+                <div id="bycountry" class="container-fluid" style="margin-left: 100px;margin-right: 100px">
+                <button type="button" class="btn btn-info" style="width: 120px">中国</button>
+                <button type="button" class="btn btn-info" style="width: 120px">美国</button>
+                <button type="button" class="btn btn-info" style="width: 120px">中东</button>
+                <button type="button" class="btn btn-info" style="width: 120px">巴基斯坦</button>
+                <button type="button" class="btn btn-info" style="width: 120px">俄罗斯</button>
+                <button type="button" class="btn btn-info" style="width: 120px">韩国</button>
+                </div>
+            </div>
+            <div class="tab-pane" id="byreport" role="tabpanel" aria-labelledby="report-tab">
+                <div id="byreport" class="container-fluid" style="margin-left: 100px;margin-right: 100px">
+                <button type="button" class="btn btn-info" >恶意软件分析报告</button>
+                <button type="button" class="btn btn-info" >攻击活动分析报告</button>
+                </div>
+            </div>
+            <div class="tab-pane" id="bymalware" role="tabpanel" aria-labelledby="malware-tab">
+                <div id="bymalware" class="container-fluid" style="margin-left: 100px;margin-right: 100px">
+                <button type="button" class="btn btn-info" style="width: 120px">MESSAGETAR</button>
+                <button type="button" class="btn btn-info" style="width: 120px">Gafgyt</button>
+                <button type="button" class="btn btn-info" style="width: 120px">Anubis</button>
+                <button type="button" class="btn btn-info" style="width: 120px">Trik</button>
+                <button type="button" class="btn btn-info" style="width: 120px">Nemty</button>
+                <button type="button" class="btn btn-info" style="width: 120px">Calypso RAT</button>
+                </div>
+            </div>
+            <div class="tab-pane" id="bycompany" role="tabpanel" aria-labelledby="company-tab">
+                <div id="bycompany" class="container-fluid" style="margin-left: 100px;margin-right: 100px">
+                <button type="button" class="btn btn-info" style="width: 120px">Kaspersky</button>
+                <button type="button" class="btn btn-info" style="width: 120px">TrendMicro</button>
+                <button type="button" class="btn btn-info" style="width: 120px">Paloalto</button>
+                <button type="button" class="btn btn-info" style="width: 120px">腾讯</button>
+                <button type="button" class="btn btn-info" style="width: 120px">奇安信</button>
+                <button type="button" class="btn btn-info" style="width: 120px">FireEye</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="container">
+        <div class="p-3 mb-2 bg-dark text-white">
+            <div class="row" >
+                <div class="col">
+                    <div class="card text-white bg-secondary mb-3" style="height: 500px">
+                      <div class="card-header"><h2>组织</h2></div>
+                      <div class="card-body">
+                          {% for apt in apt_list %}
+                              <button type="button" class="btn btn-dark">{{ apt }}</button>
+                          {% endfor %}
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-white bg-secondary mb-3" style="height: 500px">
+                      <div class="card-header"><h2>武器</h2></div>
+                      <div class="card-body">
+                          <button type="button" class="btn btn-primary">Primary</button>
+                          <button type="button" class="btn btn-secondary">Secondary</button>
+                          <button type="button" class="btn btn-success">Success</button>
+                          <button type="button" class="btn btn-danger">Danger</button>
+                          <button type="button" class="btn btn-warning">Warning</button>
+                          <button type="button" class="btn btn-info">Info</button>
+                          <button type="button" class="btn btn-light">Light</button>
+                          <button type="button" class="btn btn-dark">Dark</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
+
+

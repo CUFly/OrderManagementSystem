@@ -1,0 +1,29 @@
+{% extends 'app/index.html' %}
+
+{% block title %}更新订单{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div style="height: 100px"></div>
+                <div class="card shadow">
+                        <div class="card-header text-center">
+                            <h3>Update Order</h3>
+                        </div>
+                        <div class="card-body">
+                            <form action="{% url 'updateorder' order.id %}" method="post" style="color: black">
+                                {% csrf_token %}
+                                {{ o_form.as_p }}
+                                <div class="text-center"><button class="btn btn-primary" type="submit">提交</button></div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+{% endblock %}

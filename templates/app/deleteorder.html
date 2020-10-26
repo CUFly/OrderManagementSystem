@@ -1,0 +1,47 @@
+{% extends 'app/index.html' %}
+{% block title %}删除订单{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div style="height: 100px"></div>
+                <div class="card shadow text-center">
+                    <div class="card-header">
+                        <h4>你确定要删除这个订单吗？</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table-bordered text-center" style="margin: auto">
+                          <thead class="thead-light">
+                            <tr>
+                              <th scope="col">O_ID</th>
+                              <th scope="col">Customer</th>
+                              <th scope="col">Product</th>
+                              <th scope="col">Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">{{ order.id }}</th>
+                              <td>{{ order.custom }}</td>
+                              <td>{{ order.product }}</td>
+                              <td>{{ order.status }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div style="height: 20px"></div>
+                        <form action="{% url 'deleteorder' order.id %}" method="post">
+                            {% csrf_token %}
+                            <a href="{% url 'homepage' %}" class="btn btn-warning">取消</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-danger" type="submit">确定</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+{% endblock %}

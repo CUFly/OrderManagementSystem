@@ -1,0 +1,127 @@
+{% extends "app/index.html" %}
+
+{% block title %}首页{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card bg-info shadow">
+                    <div class="card-header text-center">
+                        <div class="card-title>">Total Order</div>
+                    </div>
+                    <div class="card-body text-center">
+                        <h1>{{ o_count }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-info shadow">
+                    <div class="card-header text-center">
+                        <div class="card-title>">Order Delivered</div>
+                    </div>
+                    <div class="card-body text-center">
+                        <h1>{{ order_d_count }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-info shadow">
+                    <div class="card-header text-center">
+                        <div class="card-title>">Order Pending</div>
+                    </div>
+                    <div class="card-body text-center">
+                        <h1>{{ order_p_count }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-info shadow">
+                    <div class="card-header text-center">
+                        <div class="card-title>">Out for delivery</div>
+                    </div>
+                    <div class="card-body text-center">
+                        <h1>{{ order_o_count }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 10px"></div>
+    <div style="background-color: white;height: 80px">
+        <div style="height: 20px"></div>
+        <div style="height: 20px">
+            <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center"><h3 style="color:black">Total Customer:{{ c_count }}</h3></div>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-lg btn-outline-primary" href="{% url 'create' %}">Create customer or order</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div style="height: 40px"></div>
+    </div>
+    <div style="height: 10px"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <h3 style="color: white">Customers</h3>
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">C_ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Phone</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">View</th>
+                    </tr>
+                  </thead>
+                  <tbody style="color: white">
+                  {% for i in customer reversed %}
+                    <tr>
+                      <th scope="row">{{ i.id }}</th>
+                      <td>{{ i.name }}</td>
+                      <td>{{ i.phone }}</td>
+                      <td>{{ i.email }}</td>
+                      <td><a href="#" class="btn btn-sm btn-info">view</a> </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 text-center">
+                <h3 style="color: white">Last 5 Orders</h3>
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">O_ID</th>
+                      <th scope="col">Customer</th>
+                      <th scope="col">Product</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Update</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody style="color: white">
+                  {% for j in last_five %}
+                    <tr>
+                      <th scope="row">{{ j.id }}</th>
+                      <td>{{ j.custom }}</td>
+                      <td>{{ j.product }}</td>
+                      <td>{{ j.status }}</td>
+                      <td><a href="{% url 'updateorder' j.id %}" class="btn btn-sm btn-warning">update</a></td>
+                      <td><a href="{% url 'deleteorder' j.id %}" class="btn btn-sm btn-danger">remove</a></td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
